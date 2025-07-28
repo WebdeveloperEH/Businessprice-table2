@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Table2</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f5f7fa;
+            padding: 40px;
+        }
+        /* Header */
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid var(--header-border);
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.4em;
+            font-weight: 700;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        .logo i {
+            color: var(--primary-blue);
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--light-text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .hero-section p {
+            font-size: 1.1em;
+            color: var(--light-text-color);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pricing-table {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .pricing-box, .pricing-box3 {
+            background: #fff;
+            border-radius: 8px;
+            width: 400px;
+            padding: 25px;
+            position: relative;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .pricing-box:hover, .pricing-box3:hover {
+            transform: scale(1.03);
+        }
+        .pricing-box {
+            border-top: 4px solid #2499CC;
+        }
+        .pricing-box3 {
+            border: 2px solid #2499CC;
+        }
+        .pricing-box.best-value, .pricing-box3.best-value {
+            border-color: #0073e6;
+        }
+
+        .ribbon {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #000;
+            color: #fff;
+            padding: 10px 15px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 0px 15px 0px 15px;
+        }
+        .pricing-box h3, .pricing-box3 h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .pricing-box p, .pricing-box3 p {
+            font-size: 14px;
+            margin-bottom: 15px;
+            color: #666;
+        }
+        .price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 10px;
+        }
+        .buy-btn {
+            display: inline-block;
+            background: orange;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 80px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .features {
+            list-style: none;
+            /*text-align: left;*/
+            padding-left: 0;
+            font-size: 14px;
+            color: #333;
+        }
+        .features li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .features li i {
+            color: #2499CC;
+            font-size: 14px;
+        }
+        .more-info {
+            display: inline-block;
+            background: #f2f2f2;
+            padding: 8px 12px;
+            text-decoration: none;
+            font-weight: bold;
+            color: #333;
+            border: 2px solid #C0A965;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        .more-info1 {
+            display: inline-block;
+            background: #f2f2f2;
+            padding: 8px 12px;
+            text-decoration: none;
+            font-weight: bold;
+            color: #333;
+            border: 2px solid #C0A965;
+            border-radius: 4px;
+            margin-top: 50px;
+        }
+
+        .more-info2 {
+            display: inline-block;
+            background: #f2f2f2;
+            padding: 8px 12px;
+            text-decoration: none;
+            font-weight: bold;
+            color: #333;
+            border: 2px solid #C0A965;
+            border-radius: 4px;
+            margin-top: 80px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #212529;
+            color: #adb5bd;
+            padding: 40px 0 20px;
+            font-size: 0.9em;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 180px;
+            margin-bottom: 20px;
+        }
+
+        .footer-column h4 {
+            color: #fff;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column ul li a {
+            color: var(--footer-text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: #fff;
+        }
+
+        .footer-column.contact-info p {
+            margin-bottom: 8px;
+        }
+
+        .footer-column.contact-info a {
+            color: var(--footer-text);
+            text-decoration: none;
+        }
+
+        .footer-column.contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.7);
+            font-size: 0.85em;
+        }
+        .tooltip {
+            position: relative;
+        }
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 5px;
+            border-radius: 6px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container navbar">
+            <a href="#" class="logo">
+                <i class="fas fa-cube"></i> BusinessPrice
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+         <section class="hero-section">
+            <h1>Choose Your Plan</h1>
+            <p>Professional business address services tailored to your needs</p>
+        </section>
+        <div class="pricing-table">
+            <div class="pricing-box">
+                <h3>Registered Office Address</h3>
+                <p>This service is best suited for those who only need to use our address on Companies House & HMRC.</p>
+                <div class="price">£30.00</div>
+                <a href="#" class="buy-btn">BUY NOW</a>
+                <ul class="features">
+                    <li><i class="fa-solid fa-check"></i> One-Year Service <i class="fa-solid fa-circle-info tooltip"><span class="tooltip-text">Annual coverage included</span></i></li>
+                    <li><i class="fa-solid fa-check"></i> London Address <i class="fa-solid fa-circle-info tooltip"><span class="tooltip-text">Prestigious central location</span></i></li>
+                    <li><i class="fa-solid fa-check"></i> Registered Office Address <i class="fa-solid fa-circle-info tooltip"><span class="tooltip-text">Used for official registration</span></i></li>
+                    <li><i class="fa-solid fa-check"></i> Director’s Service Address <i class="fa-solid fa-circle-info tooltip"><span class="tooltip-text">Protects personal privacy</span></i></li>
+                    <li><i class="fa-solid fa-check"></i> Companies House & HMRC letters forwarding <i class="fa-solid fa-circle-info tooltip"><span class="tooltip-text">Mail is forwarded digitally</span></i></li>
+                    <li><i class="fa-solid fa-check"></i> Email Notification <i class="fa-solid fa-circle-info tooltip"><span class="tooltip-text">Instant alerts for letters</span></i></li>
+                </ul>
+                <a href="#" class="more-info">MORE INFORMATION</a>
+            </div>
+
+            <div class="pricing-box">
+                <h3>Business Address Service</h3>
+                <p>This service is best for those who want to use our address outside Companies House.</p>
+                <div class="price">£35.00</div>
+                <a href="#" class="buy-btn">BUY NOW</a>
+                <ul class="features">
+                    <li><i class="fa-solid fa-check"></i> One-Year Service <i class="fa-solid fa-circle-info tooltip"><span class="tooltip-text">Full year coverage</span></i></li>
+                    <li><i class="fa-solid fa-check"></i> London Address <i class="fa-solid fa-circle-info tooltip"><span class="tooltip-text">Impress clients with location</span></i></li>
+                    <li><i class="fa-solid fa-check"></i> Business Address Service <i class="fa-solid fa-circle-info tooltip"><span class="tooltip-text">Also called Virtual Trading Address</span></i></li>
+                    <li><i class="fa-solid fa-check"></i> Email Notification <i class="fa-solid fa-circle-info tooltip"><span class="tooltip-text">Stay updated instantly</span></i></li>
+                    <li><i class="fa-solid fa-xmark"></i> Does not cover Companies House & HMRC <i class="fa-solid fa-circle-info tooltip"><span class="tooltip-text">For external use only</span></i></li>
+                </ul>
+                <a href="#" class="more-info1">MORE INFORMATION</a>
+            </div>
+
+            <div class="pricing-box3 best-value">
+                <div class="ribbon">BEST VALUE</div>
+                <h3>All-In-One Business Service Plus</h3>
+                <p>This service is best for those who want to use our address for Companies House and outside.</p>
+                <div class="price">£79.99</div>
+                <a href="#" class="buy-btn">BUY NOW</a>
+                <ul class="features">
+                    <li><i class="fa-solid fa-check"></i> Includes everything from Registered Office Address <i class="fa-solid fa-circle-info tooltip"><span class="tooltip-text">All core services included</span></i></li>
+                    <li><i class="fa-solid fa-check"></i> Includes everything from Business Address Service <i class="fa-solid fa-circle-info tooltip"><span class="tooltip-text">Also external address use</span></i></li>
+                    <li><i class="fa-solid fa-check"></i> 50 letter credit <i class="fa-solid fa-circle-info tooltip"><span class="tooltip-text">Covers 50 forwarded mails</span></i></li>
+                    <li><i class="fa-solid fa-check"></i> Covers up to three directors <i class="fa-solid fa-circle-info tooltip"><span class="tooltip-text">Multiple director support</span></i></li>
+                </ul>
+                <a href="#" class="more-info2">MORE INFORMATION</a>
+            </div>
+        </div>
+
+        <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div style="padding-left: 20px;" class="footer-column">
+                    <h4 >Services</h4>
+                    <ul>
+                        <li><a href="#">Registered Office</a></li>
+                        <li><a href="#">Business Address</a></li>
+                        <li><a href="#">Mail Forwarding</a></li>
+                        <li><a href="#">Virtual Office</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column contact-info">
+                    <h4>Contact</h4>
+                    <p>Email: <a href="mailto:info@businesshub.com">info@businessprice.com</a></p>
+                    <p>Phone: <a href="tel:+442012345678">+44545 545455</a></p>
+                    <p>Address: Mymenshingh, Bangladesh</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2025 BusinessPrice. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
